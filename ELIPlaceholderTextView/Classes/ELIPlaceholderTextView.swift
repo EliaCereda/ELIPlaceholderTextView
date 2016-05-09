@@ -45,6 +45,7 @@ public class ELIPlaceholderTextView: UITextView {
 
 	// MARK: Properties
 
+    @IBInspectable dynamic
 	public var placeholder: String? {
 		get { return placeholderLabel.text }
 		set { placeholderLabel.text = newValue }
