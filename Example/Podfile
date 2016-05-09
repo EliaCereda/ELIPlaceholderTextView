@@ -1,0 +1,5 @@
+use_frameworks!
+
+target 'ELIPlaceholderTextView-Demo' do
+  pod 'ELIPlaceholderTextView', :path => '../'
+end
