@@ -88,13 +88,12 @@ public class ELIPlaceholderTextView: UITextView {
 		let insets = self.textContainerInset
 
 		self.placeholderConstraints = constrain(placeholderLabel, self, replace: self.placeholderConstraints) { placeholderLabel, view in
-			placeholderLabel.top == view.top + insets.top
-			placeholderLabel.leading == view.leading + (insets.left + 4)
+            placeholderLabel.top == view.top + insets.top
+            placeholderLabel.bottom <= view.bottom - insets.bottom
             
-            let verticalInsets = insets.top + insets.bottom
+            placeholderLabel.leading == view.leading + (insets.left + 4)
+            
             let horizontalInsets = (insets.left + 4) + (insets.right + 4)
-            
-            placeholderLabel.height <= view.height - verticalInsets
             placeholderLabel.width <= view.width - horizontalInsets
 		}
 	}
