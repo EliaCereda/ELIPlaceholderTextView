@@ -35,7 +35,7 @@ public class ELIPlaceholderTextView: UITextView {
 		self.addSubview(placeholderLabel)
 
 		NSNotificationCenter.defaultCenter()
-			.addObserver(self, selector: #selector(textDidChange(_:)), name: UITextViewTextDidChangeNotification, object: self)
+			.addObserver(self, selector: #selector(textDidChange), name: UITextViewTextDidChangeNotification, object: self)
 	}
 
 	deinit {
@@ -51,9 +51,15 @@ public class ELIPlaceholderTextView: UITextView {
 		set { placeholderLabel.text = newValue }
 	}
 
+    public override var text: String! {
+        didSet {
+            self.textDidChange()
+        }
+    }
+    
 	// MARK: Updates
 
-	func textDidChange(sender: UITextView) {
+	func textDidChange() {
 		self.placeholderLabel.hidden = (self.text.isEmpty == false)
 	}
 
